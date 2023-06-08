@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search Results</title>
+  </head>
+  <body>
+    <h1>Search Results</h1>
+    {% if data %}
+    <pre>
+        {% for line in data %}
+            {{ line }}
+        {% endfor %}
+        </pre
+    >
+    <form action="/download" method="POST">
+      <input type="hidden" name="data" value="{{ '\n'.join(data) }}" />
+      <button type="submit">Download</button>
+    </form>
+    {% else %}
+    <p>No results found.</p>
+    {% endif %}
+  </body>
+</html>
